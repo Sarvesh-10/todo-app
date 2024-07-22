@@ -4,10 +4,10 @@ function TodoItem(props) {
 	const { todo, index, removeTodo } = props;
 	
 	return (
-		<div>
-			<span>{todo}</span>
-			<button onClick={() => removeTodo(index)}>Done</button>
-		</div>
+		<div className="todo-item">
+            <span className="todo-text">{todo}</span>
+            <button className="remove-todo-btn" onClick={() => removeTodo(index)}>Done</button>
+        </div>
 	);
 }
 

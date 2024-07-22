@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TodoItem from './TodoItem'
+import './App.css'
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -18,13 +19,15 @@ function App() {
 
   return (
     <>
-      <textarea placeholder="Todo Item"></textarea>
-      <button onClick={addTodo}>Add</button>
-      <div>
+      <textarea className="todo-input" placeholder="Todo Item"></textarea>
+
+      <button className="add-todo-btn" onClick={addTodo}>Add</button>
+
+      <div className="todo-list">
         {
-          todoList.map((todo, index) => {
-            return <TodoItem todo={todo} index={index} removeTodo={removeTodo} key={index} />
-          })
+          todoList.map((todo, index) => (
+            <TodoItem todo={todo} index={index} removeTodo={removeTodo} key={index} />
+          ))
         }
       </div>
     </>
