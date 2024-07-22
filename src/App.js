@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from 'react'
+import TodoItem from './TodoItem'
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -11,13 +11,23 @@ function App() {
     textarea.value = '';
   }
 
+  const removeTodo = (index) => {
+    const newTodoList = todoList.filter((todo, i) => i !== index);
+    setTodoList(newTodoList);
+  }
+
   return (
     <>
-      <textarea placeholder='Todo Item'></textarea>
+      <textarea placeholder="Todo Item"></textarea>
       <button onClick={addTodo}>Add</button>
-      {todoList.map((todo, id) => <div key={id}>{todo}</div>)}
+      <div>
+        {
+          todoList.map((todo, index) => {
+            return <TodoItem todo={todo} index={index} removeTodo={removeTodo} key={index} />
+          })
+        }
+      </div>
     </>
   );
 }
-
 export default App;
