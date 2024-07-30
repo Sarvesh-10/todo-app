@@ -32,7 +32,7 @@ jobs:
         with:
           name: node-app
           path: .
-          - name: Create .artifactignore
+      - name: Create .artifactignore
         run: |
           echo 'node_modules' > .artifactignore
           echo '*.log' >> .artifactignore
